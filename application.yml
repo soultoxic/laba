@@ -1,0 +1,94 @@
+lavalink:
+    plugins:
+        - dependency: com.github.TopiSenpai.LavaSrc:lavasrc-plugin:3.2.0
+          repository: https://jitpack.io
+        - dependency: com.dunctebot:skybot-lavalink-plugin:1.4.1
+          repository: https://m2.duncte123.dev/releases
+        - dependency: me.rohank05:lavalink-filter-plugin:0.0.1
+          repository: https://jitpack.io
+    server:
+        bufferDurationMs: 400
+        frameBufferDurationMs: 5000
+        gc-warnings: true
+        opusEncodingQuality: 0
+        password: youshallnotpass
+        playerUpdateInterval: 5
+        resamplingQuality: HIGH
+        soundcloudSearchEnabled: true
+        sources:
+            bandcamp: true
+            http: true
+            local: false
+            mixer: true
+            soundcloud: true
+            twitch: true
+            vimeo: true
+            youtube: true
+        trackStuckThresholdMs: 10000
+        useSeekGhosting: true
+        youtubePlaylistLoadLimit: 5
+        youtubeSearchEnabled: true
+logging:
+    file:
+        path: ./logs/
+    level:
+        lavalink: INFO
+        root: INFO
+    logback:
+        rollingpolicy:
+            max-file-size: 1GB
+            max-history: 30
+metrics:
+    prometheus:
+        enabled: false
+        endpoint: /metrics
+plugins:
+    dunctebot:
+        sources:
+            clypit: true
+            getyarn: true
+            mixcloud: true
+            ocremix: true
+            pornhub: true
+            reddit: true
+            tiktok: true
+            tts: true
+        ttsLanguage: en-US
+    lavasrc:
+        applemusic:
+            albumLoadLimit: 6
+            countryCode: US
+            playlistLoadLimit: 6
+        deezer:
+            masterDecryptionKey: ' '
+        providers:
+            - ytsearch:"%ISRC%"
+            - ytsearch:%QUERY%
+            - ytmsearch:"%ISRC%"
+            - ytmsearch:%QUERY%
+            - scsearch:%QUERY%
+            - spsearch:%QUERY%
+            - sprec:%QUERY%
+            - amsearch:%QUERY%
+            - dzisrc:%ISRC%
+            - dzsearch:%QUERY%
+            - ymsearch:%QUERY%
+        sources:
+            applemusic: true
+            deezer: false
+            spotify: true
+            yandexmusic: false
+        spotify:
+            albumLoadLimit: 6
+            clientId: 1cde456e3b0247ec9b027752e311d5a8
+            clientSecret: 89ef185580dc4214b74111fecc4d508c
+            countryCode: US
+            playlistLoadLimit: 6
+        yandexmusic:
+            accessToken: ' '
+sentry:
+    dsn: ""
+    environment: ""
+server:
+    address: 0.0.0.0
+    port: 80
